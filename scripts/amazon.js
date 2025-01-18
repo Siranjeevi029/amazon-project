@@ -1,23 +1,5 @@
 
-let products=[
-    product1={name:'Black and Gray Athletic Cotton Socks - 6 Pairs',
-        image:'images/products/athletic-cotton-socks-6-pairs.jpg',
-        rating:45,
-        pitchRating:87,
-        priceInCents:1090
-    }
-    ,product2={name:'Intermediate Size Basketball',
-    image:'images/products/intermediate-composite-basketball.jpg',
-    rating:40,
-    pitchRating:127,
-    priceInCents:2095
-},
-product3={name:'Adults Plain Cotton T-Shirt - 2 Pack',
-    image:'images/products/adults-plain-cotton-tshirt-2-pack-teal.jpg',
-    rating:45,
-    pitchRating:56,
-    priceInCents:799
-}];
+
 let save=document.querySelector(".products-grid");
 // let h=document.createElement("h1");
 // h.innerHTML="hello";
@@ -36,14 +18,14 @@ products.forEach((value)=>{
 
           <div class="product-rating-container">
             <img class="product-rating-stars"
-              src="images/ratings/rating-${value.rating}.png">
+              src="images/ratings/rating-${value.rating.stars*10}.png">
             <div class="product-rating-count link-primary">
-              ${value.pitchRating}
+              ${value.rating.count}
             </div>
           </div>
 
           <div class="product-price">
-            $${value.priceInCents/100}
+            $${value.priceCents/100}
           </div>
 
           <div class="product-quantity-container">
