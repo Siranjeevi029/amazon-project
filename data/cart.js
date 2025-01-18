@@ -1,4 +1,4 @@
-export let cart=[];
+let cart=[];
 export function addToCart(value){
     let final=value.dataset.id;
       let t=false;

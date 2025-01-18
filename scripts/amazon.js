@@ -1,5 +1,5 @@
 
-import {cart,addToCart,updateCartQuantity} from '../data/cart.js';
+import {addToCart,updateCartQuantity} from '../data/cart.js';
 import {products} from '../data/products.js';
 
 let save=document.querySelector(".products-grid");
