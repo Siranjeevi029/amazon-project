@@ -1,5 +1,6 @@
 
 import {cart} from '../data/cart.js';
+import {products} from '../data/products.js';
 let save=document.querySelector(".products-grid");
 
 products.forEach((value)=>{
@@ -55,8 +56,7 @@ products.forEach((value)=>{
         save.innerHTML+=html;
 
 });
-// console.log(document.querySelector('.product-quantity-container')
-// .children[0].value);
+
 let quan=document.querySelector('.cart-quantity');
 document.querySelectorAll('.add-to-cart-button')
 
@@ -83,6 +83,7 @@ cart.forEach((value)=>{
     quantity+=value.quantity;
 });
 quan.innerHTML=quantity;
+
     });
 });
 
