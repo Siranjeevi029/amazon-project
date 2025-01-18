@@ -1,4 +1,1 @@
-let cart=[];
-function magic(){
-    
-}
+export let cart=[];

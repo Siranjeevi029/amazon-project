@@ -1,10 +1,7 @@
 
-
+import {cart} from '../data/cart.js';
 let save=document.querySelector(".products-grid");
-// let h=document.createElement("h1");
-// h.innerHTML="hello";
-// save.appendChild(h);
-// console.log(typeof h);
+
 products.forEach((value)=>{
     const html=`<div class="product-container">
           <div class="product-image-container">
@@ -58,6 +55,8 @@ products.forEach((value)=>{
         save.innerHTML+=html;
 
 });
+// console.log(document.querySelector('.product-quantity-container')
+// .children[0].value);
 let quan=document.querySelector('.cart-quantity');
 document.querySelectorAll('.add-to-cart-button')
 
@@ -68,12 +67,16 @@ document.querySelectorAll('.add-to-cart-button')
         let t=false;
         for(let i=0;i<cart.length;i++){
             if(cart[i].productId===final){
-                cart[i].quantity+=1;
+                let q=Number(value.parentElement.children[4].children[0].value);
+                cart[i].quantity+=q;
                 t=true;
                 break;
             }
         }
-        if(!t) cart.push({productId:final,quantity:1});
+        if(!t) {
+            let q=Number(value.parentElement.children[4].children[0].value);
+            cart.push({productId:final,quantity:q});
+        }
         console.log(cart);
         let quantity=0;
 cart.forEach((value)=>{
