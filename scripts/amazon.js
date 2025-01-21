@@ -57,20 +57,21 @@ products.forEach((value)=>{
         save.innerHTML+=html;
 
 });
+const val=updateCartQuantity();
 document.querySelector('.cart-quantity').
-innerHTML=updateCartQuantity();
-localStorage.setItem('totalQuan',3);
+innerHTML=val;
+localStorage.setItem('totalQuan',val);
 
 document.querySelectorAll('.add-to-cart-button')
 
 .forEach((value)=>{
     value.addEventListener('click',()=>{
-       
+       const val=updateCartQuantity();
         addToCart(value);
         document.querySelector('.cart-quantity').
-innerHTML=updateCartQuantity();
+innerHTML=val;
         localStorage.setItem('totalQuan',
-          updateCartQuantity()
+          val
         );
 
     });
