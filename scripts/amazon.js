@@ -23,7 +23,7 @@ products.forEach((value)=>{
             </div>
           </div>
 
-          <div class="product-price">
+          <div class="product-price" data-amount="${value.priceCents}">
             $${value.priceCents/100}
           </div>
 
@@ -57,7 +57,9 @@ products.forEach((value)=>{
         save.innerHTML+=html;
 
 });
-
+document.querySelector('.cart-quantity').
+innerHTML=updateCartQuantity();
+localStorage.setItem('totalQuan',3);
 
 document.querySelectorAll('.add-to-cart-button')
 
@@ -65,10 +67,19 @@ document.querySelectorAll('.add-to-cart-button')
     value.addEventListener('click',()=>{
        
         addToCart(value);
-        updateCartQuantity();
+        document.querySelector('.cart-quantity').
+innerHTML=updateCartQuantity();
+        localStorage.setItem('totalQuan',
+          updateCartQuantity()
+        );
 
     });
   });
+  
+    
+
+
+
  
     
 
