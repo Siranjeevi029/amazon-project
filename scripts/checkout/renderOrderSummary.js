@@ -1,12 +1,13 @@
 
-import { products } from '../../data/products.js';
+
 import { cart,removeFromCart,updateDeliveryOptions } from '../../data/cart.js';
 import { deliveryOptions } from '../../data/deliveryOptions.js';
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
 import { orderSummary } from './orderSummary.js';
 
-export function renderOrderSummary(){
-    
+export function renderOrderSummary(products){
+  
+  
     
     powerUp();
     
@@ -89,7 +90,7 @@ forEach((value)=>{
      
      updateDeliveryOptions(value);
     
-     renderOrderSummary();
+     renderOrderSummary(products);
      orderSummary();
      
      

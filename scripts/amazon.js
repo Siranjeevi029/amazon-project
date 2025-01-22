@@ -1,10 +1,16 @@
 
 import {addToCart,updateCartQuantity} from '../data/cart.js';
-import {products} from '../data/products.js';
 
-let save=document.querySelector(".products-grid");
+import { loadPromise,products } from '../data/products.js';
+loadPromise(matrix);
+
+// new Export(matrix);
+
+ function matrix(){
+  let save=document.querySelector(".products-grid");
 
 products.forEach((value)=>{
+
     const html=`<div class="product-container">
           <div class="product-image-container">
             <img class="product-image"
@@ -17,7 +23,7 @@ products.forEach((value)=>{
 
           <div class="product-rating-container">
             <img class="product-rating-stars"
-              src="images/ratings/rating-${value.rating.stars*10}.png">
+              src="images/ratings/rating-${value.getStars()}.png">
             <div class="product-rating-count link-primary">
               ${value.rating.count}
             </div>
@@ -41,8 +47,11 @@ products.forEach((value)=>{
               <option value="10">10</option>
             </select>
           </div>
-
-          <div class="product-spacer"></div>
+          
+          ${value.prin()}
+          <div class="product-spacer">
+          
+          </div>
 
           <div class="added-to-cart">
             <img src="images/icons/checkmark.png">
@@ -66,8 +75,10 @@ document.querySelectorAll('.add-to-cart-button')
 
 .forEach((value)=>{
     value.addEventListener('click',()=>{
-       const val=updateCartQuantity();
+       
+       
         addToCart(value);
+        const val=updateCartQuantity();
         document.querySelector('.cart-quantity').
 innerHTML=val;
         localStorage.setItem('totalQuan',
@@ -76,6 +87,7 @@ innerHTML=val;
 
     });
   });
+}
   
     
 

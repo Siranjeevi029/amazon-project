@@ -1,4 +1,4 @@
-import { cart,removeFromCart,updateDeliveryOptions } from '../../data/cart.js';
+import { cart } from '../../data/cart.js';
 import { deliveryOptions } from '../../data/deliveryOptions.js';
 export function orderSummary(){
     let c=localStorage.getItem('carted');
