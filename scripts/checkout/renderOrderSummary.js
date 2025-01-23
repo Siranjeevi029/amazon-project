@@ -4,8 +4,9 @@ import { cart,removeFromCart,updateDeliveryOptions } from '../../data/cart.js';
 import { deliveryOptions } from '../../data/deliveryOptions.js';
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
 import { orderSummary } from './orderSummary.js';
+import { matchingProduct } from '../../data/products.js';
 
-export function renderOrderSummary(products){
+export function renderOrderSummary(){
   
   
     
@@ -21,15 +22,8 @@ cart.forEach((value)=>{
     let ID=value.productId;
     let checked=value.deliveryOptionsId;
    
-    let match;
-    for(let i=0;i<products.length;i++){
-      
-        if(products[i].id===ID){
-            match=products[i];
-            
-            break;
-        }
-    }
+    let match=matchingProduct(ID);
+    
     s+=`<div class="cart-item-container">
             <div class="delivery-date">
               Delivery date: ${deliveryOptionsHTML
@@ -90,7 +84,7 @@ forEach((value)=>{
      
      updateDeliveryOptions(value);
     
-     renderOrderSummary(products);
+     renderOrderSummary();
      orderSummary();
      
      

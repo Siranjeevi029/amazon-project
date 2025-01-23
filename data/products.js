@@ -1,4 +1,12 @@
 
+export function matchingProduct(ID){
+  for(let i=0;i<products.length;i++){
+      
+    if(products[i].id===ID){
+        return products[i];
+    }
+}
+}
 class Product{
   id;
   image;
@@ -725,11 +733,11 @@ but normal function makes this this undefined again when a new funciton is creat
 //   }
 // ]
 
-
 export let products;
-export function loadPromise(fun){
-  fetch('https://supersimplebackend.dev/products').then((response)=>{
-    return response.json();
+
+export function loadPromise(){
+   const xx=fetch('https://supersimplebackend.dev/products').then((resp)=>{
+    return resp.json();
     }).then((productsData)=>{
       products=productsData.map((value)=>{
         if(value.sizeChartLink){
@@ -737,31 +745,33 @@ export function loadPromise(fun){
         }
         return new Product(value);
      });
-      fun();
+     
+     
     });
-
+    
+    return xx;
 }
 
 
-export class Export{
-  products;
-constructor(fun){
+let prod;
 const pr=new XMLHttpRequest();
 pr.addEventListener('load',()=>{
-  this.products=JSON.parse(pr.response);
-  this.products=this.products.map((value)=>{
-    if(value.sizeChartLink){
-    return new Clothing(value);
-    }
-    return new Product(value);
- });
-  fun(this.products);
-  
-  
-  
+  prod=pr.response;
 });
-pr.open('GET','https://supersimplebackend.dev/products');
+pr.addEventListener('error',()=>{
+  console.log('error occured please try again');
+});
+
+pr.open('GET','https://supersimplebackend.dev/cart');
 pr.send();
 
-}
+
+export function loadCart(func){
+  const c=new XMLHttpRequest();
+  c.addEventListener('load',()=>{
+    
+    func();
+  });
+  c.open('GET','https://supersimplebackend.dev/products');
+  c.send();
 }
