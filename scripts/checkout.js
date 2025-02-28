@@ -1,6 +1,6 @@
 import { orderSummary } from "./checkout/orderSummary.js";
 import { renderOrderSummary } from "./checkout/renderOrderSummary.js";
-import { loadPromise,loadCart} from "../data/products.js";
+import { loadPromise,loadCart,products} from "../data/products.js";
 // new Export((products)=>{
 //     renderOrderSummary(products);
 // orderSummary();
@@ -25,12 +25,14 @@ async  function hello(){
    finally{
     renderOrderSummary();
     orderSummary();
+    
    }
     
     
 }
 
 hello();
+
 
 // loadPromise().then(()=>{
 //     return new Promise((resolve)=>{
@@ -43,3 +45,5 @@ hello();
 //     renderOrderSummary();
 //      orderSummary();
 // })
+
+

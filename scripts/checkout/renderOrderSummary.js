@@ -5,6 +5,7 @@ import { deliveryOptions } from '../../data/deliveryOptions.js';
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
 import { orderSummary } from './orderSummary.js';
 import { matchingProduct } from '../../data/products.js';
+import { newDayGenerate } from '../../data/day.js';
 
 export function renderOrderSummary(){
   
@@ -23,6 +24,8 @@ cart.forEach((value)=>{
     let checked=value.deliveryOptionsId;
    
     let match=matchingProduct(ID);
+    
+    
     
     s+=`<div class="cart-item-container">
             <div class="delivery-date">
@@ -67,6 +70,7 @@ cart.forEach((value)=>{
 
 });
 main.innerHTML=s;
+
 let del=document.querySelectorAll('.delete-quantity-link');
 del.forEach((value)=>{
     value.addEventListener('click',()=>{
@@ -79,6 +83,7 @@ del.forEach((value)=>{
 });
 document.querySelectorAll('.delivery-option').
 forEach((value)=>{
+  
   value.addEventListener('click',()=>{
 
      
@@ -93,14 +98,13 @@ forEach((value)=>{
 function deliveryOptionsHTML(id,checked){
  
     let yemma='';
-    let date=dayjs();
+    
     let IDE='';
     deliveryOptions.forEach((value)=>{
       let check='';
       
       
-      let val=date.add(value.deliveryDays,'days');
-      val=val.format('dddd, MMMM D');
+      let val=newDayGenerate(value.deliveryDays);
       if(checked===value.id){
         check="checked";
         IDE=val;

@@ -13,3 +13,9 @@ export let deliveryOptions=[
         priceCents:999
     }
 ];
+export function getDays(id){
+    deliveryOptions.forEach((value)=>{
+        if(value.id===id)
+            return deliveryDays;
+    });
+}

@@ -7,6 +7,9 @@ export function matchingProduct(ID){
     }
 }
 }
+export function returnProducts(){
+  return products;
+}
 class Product{
   id;
   image;

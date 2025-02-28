@@ -4,14 +4,14 @@ if(!cart){
         {productId: "3ebe75dc-64d2-4137-8860-1f5a963e534b",
             name: "6 Piece White Dinner Plate Set",
             quantity:2,
-            amount:6578,
+            amount:2067,
             deliveryOptionsId:1
         },
         {productId: "8c9c52b5-5a19-4bcb-a5d1-158a74287c53",
             name: "6-Piece Nonstick, Carbon Steel Oven Bakeware Baking Set",
             quantity:1,
-            amount:2078,
-            deliveryOptionsId:2
+            amount:3499,
+            deliveryOptionsId:1
         },
         
     ];
