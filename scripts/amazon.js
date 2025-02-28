@@ -6,11 +6,6 @@ import { loadPromise,products } from '../data/products.js';
 loadPromise().then(()=>{
   matrix();
 });
-
-
-
-
-
  function matrix(){
   let save=document.querySelector(".products-grid");
 
