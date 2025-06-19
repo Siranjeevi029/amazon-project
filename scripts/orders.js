@@ -14,8 +14,10 @@ function generateHTML(){
   if(!val)val=updateCartQuantity();
   document.querySelector('.cart-quantity').
   innerHTML=val;
- 
-    orders.forEach((order)=>{
+
+  if(orders.length){
+    
+  orders.forEach((order)=>{
     
         document.querySelector('.orders-grid').
         innerHTML+=`<div class="order-container">
@@ -85,7 +87,14 @@ function generateHTML(){
                 </div>`;
             });
     });
-    const like={};
+   
+  }
+   else{
+    
+      document.querySelector('.orders-grid').
+        innerHTML+=`<h3 style="text-align:center;color:red">No Orders available<h3>`
+    }
+  const like={};
     
     document.querySelectorAll('.track-package-button').forEach(
       (value)=>{

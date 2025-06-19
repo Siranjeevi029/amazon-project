@@ -26,9 +26,6 @@ export function addToCart(value){
       for(let i=0;i<cart.length;i++){
           if(cart[i].productId===final){
               let q=Number(value.parentElement.children[4].children[0].value);
-              
-              
-              
               cart[i].quantity+=q;
               t=true;
               break;
@@ -38,7 +35,7 @@ export function addToCart(value){
           let q=Number(value.parentElement.children[4].children[0].value);
          
           let amount=Number(value.parentElement.children[3].dataset.amount);
-        //   console.log(amount);
+        
           cart.push({productId:final,quantity:q,amount,deliveryOptionsId:1});
           
           // totalSum+=parseFloat(value.parentElement.children[3].
