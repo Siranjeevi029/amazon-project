@@ -1,4 +1,5 @@
 import { advancedDayGenerate } from "../data/day.js";
+import { updateCartQuantity } from "../data/cart.js";
 const items=JSON.parse(localStorage.getItem('end'));
 let val=localStorage.getItem('totalQuan');
   if(!val)val=updateCartQuantity();
