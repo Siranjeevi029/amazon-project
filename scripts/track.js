@@ -5,7 +5,8 @@ let val=localStorage.getItem('totalQuan');
   if(!val)val=updateCartQuantity();
   document.querySelector('.cart-quantity').
   innerHTML=val;
-document.querySelector('.main')
+if(items){
+  document.querySelector('.main')
 .innerHTML=`<div class="order-tracking">
         <a class="back-to-orders-link link-primary" href="orders.html">
           View all orders
@@ -41,6 +42,11 @@ document.querySelector('.main')
           <div class="progress-bar"></div>
         </div>
       </div>`;
+}
+else{
+  document.querySelector('.main')
+.innerHTML='<h3 style="color:red;text-align:center">Error Occured</h3>'
+}
 
       window.addEventListener("pageshow", function (event) {
   if (event.persisted) {
