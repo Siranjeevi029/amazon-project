@@ -62,6 +62,7 @@ export function addToCart(value){
               break;
           }
       }
+    //   console.log(cart);
   }
   
    

@@ -139,8 +139,10 @@ function deliveryOptionsHTML(id,checked){
   }
 }
 function powerUp(){
+
+  const val = localStorage.getItem('totalQuan') || 0;
   
     document.querySelector('.checkout-header-middle-section').innerHTML=
     `Checkout (<a class="return-to-home-link"
-        href="amazon.html">${localStorage.getItem('totalQuan')} items</a>)`;
+        href="index.html">${val} items</a>)`;
 }

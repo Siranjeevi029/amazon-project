@@ -114,3 +114,9 @@ function generateHTML(){
     
     
 }
+window.addEventListener("pageshow", function (event) {
+  if (event.persisted) {
+    // Page was restored from cache — force a reload
+    window.location.reload();
+  }
+});

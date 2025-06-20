@@ -1,6 +1,6 @@
 import { orderSummary } from "./checkout/orderSummary.js";
 import { renderOrderSummary } from "./checkout/renderOrderSummary.js";
-import { loadPromise,loadCart,products} from "../data/products.js";
+import { loadPromise,loadCart} from "../data/products.js";
 // new Export((products)=>{
 //     renderOrderSummary(products);
 // orderSummary();
@@ -10,7 +10,7 @@ async  function hello(){
    try{
     
     await loadPromise();
-    await new Promise((resolve,reject)=>{
+    await new Promise((resolve)=>{
         loadCart(()=>{
             // reject('error occured')
             resolve();
@@ -32,6 +32,13 @@ async  function hello(){
 }
 
 hello();
+
+window.addEventListener("pageshow", function (event) {
+  if (event.persisted) {
+    // Page was restored from cache — force a reload
+    window.location.reload();
+  }
+});
 
 
 // loadPromise().then(()=>{
